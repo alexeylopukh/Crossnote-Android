@@ -20,12 +20,19 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Login"
-                  android:windowSoftInputMode="adjustResize">
+        <activity
+                android:name=".Login"
+                android:windowSoftInputMode="adjustResize">
         </activity>
         <activity android:name=".SignIn">
         </activity>
         <activity android:name=".NoteActivity">
+        </activity>
+        <activity android:name=".EditActivity">
+        </activity>
+        <activity android:name=".Main2Activity">
+        </activity>
+        <activity android:name=".ShowActivity">
         </activity>
     </application>
 

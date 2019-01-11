@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            startActivity(Intent(this, NoteActivity::class.java))
+            val intent = Intent(this, NoteActivity::class.java)
+            startActivity(intent)
         }
         else {
-
             startActivity(Intent(this, Login::class.java))
         }
     }
