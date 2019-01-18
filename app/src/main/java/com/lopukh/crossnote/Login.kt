@@ -1,15 +1,14 @@
 package com.lopukh.crossnote
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.design.widget.TextInputLayout
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_login.*
 
 class Login : AppCompatActivity() {
 
@@ -28,7 +27,7 @@ class Login : AppCompatActivity() {
         loginBtn.setOnClickListener{
             val email = emailInput.text.toString()
             val pass = passInput.text.toString()
-            emailLayout.error = null
+            emalLayout.error = null
             passLayout.error = null
             val valid: Boolean = validData(email, pass)
              if (valid) {startLogin(email, pass)}
@@ -37,8 +36,10 @@ class Login : AppCompatActivity() {
 
     private fun validData(email: String?, password: String?): Boolean{
         var result = true
+        val emalLayout = findViewById<TextInputLayout>(R.id.emailLayout)
+        val passLayout = findViewById<TextInputLayout>(R.id.passLayout)
         if (email.isNullOrEmpty()) {
-            emailLayout.error = "Field cannot be empty"
+            emalLayout.error = "Field cannot be empty"
             result = false
         }
         if (password != null) {
@@ -48,7 +49,7 @@ class Login : AppCompatActivity() {
             }
         }
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailLayout.error = "Invalid email"
+            emalLayout.error = "Invalid email"
             result = false
         }
         return result
@@ -79,7 +80,8 @@ class Login : AppCompatActivity() {
                     snack.show()
                 }
                 else {
-                    emailLayout.error = "This email does not exist"
+                    val emalLayout = findViewById<TextInputLayout>(R.id.emailLayout)
+                    emalLayout.error = "This email does not exist"
                 }
             }
     }
